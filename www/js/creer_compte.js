@@ -20,6 +20,12 @@ var app = {
         document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
 
+             // evite que l'écran se mette en mode paysage
+
+            screen.orientation.lock('portrait')
+
+             //enleve la statue barre
+
             if (cordova.platformId == 'android') {
                 StatusBar.hide();
             }

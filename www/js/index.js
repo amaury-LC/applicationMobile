@@ -21,6 +21,8 @@ var app = {
         document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
 
+            screen.orientation.lock('portrait')
+
             
 
             if (cordova.platformId == 'android') {
