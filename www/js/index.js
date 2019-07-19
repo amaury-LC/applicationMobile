@@ -21,13 +21,17 @@ var app = {
         document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
 
+            // evite que l'écran se mette en mode paysage
+
             screen.orientation.lock('portrait')
 
-            
+            //enleve la statue barre
 
             if (cordova.platformId == 'android') {
                 StatusBar.hide();
             }
+
+            //cree une table name si elle n'est pas créé
 
             var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
             db.transaction(function (tx) {
@@ -36,6 +40,9 @@ var app = {
 
 
             });
+
+            //quand le bouton valider est cliqué  on recupere les valeurs des input pour comparer une egalité dans la base de donnée
+            // si c'est le cas redirige vers la page principal et sinon message alert
         
 
             document.getElementById("button").addEventListener("touchstart", valider);
